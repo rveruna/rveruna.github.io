@@ -154,13 +154,13 @@ export const projects: Project[] = [
     name: 'Payoff Planner',
     tagline: 'Which debt first?',
     description:
-      'Compares avalanche, snowball and minimum payments for several debts, shows the plans racing, and for any month shows exactly how every number was worked out. The debts are invented.',
+      'Compares avalanche, snowball and minimum payments for several debts, shows the plans racing, and for any month shows exactly how every number was worked out. A web app, plus a multi-screen Expo app that shares the same engine. The debts are invented.',
     highlights: [
       'Money held as whole pence, with the rounding rule written down',
       'Property-based tests found that snowball can take longer when a single penny more is paid',
-      'The working is read from the plan itself, so it cannot disagree with the numbers',
+      'The Expo app imports the engine rather than copying it, with 215 screen tests and axe on its web build; not yet run on a simulator or phone, and the repo says so',
     ],
-    stack: ['React', 'TypeScript', 'fast-check', 'Vitest'],
+    stack: ['React', 'Expo', 'React Native', 'TypeScript', 'Zustand', 'fast-check'],
     demoUrl: 'https://rveruna.github.io/payoff-planner/',
     repoUrl: 'https://github.com/rveruna/payoff-planner',
     color: '#ffc83d',
