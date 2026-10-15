@@ -172,7 +172,7 @@ export const projects: Project[] = [
     description:
       'An Expo / React Native app that finds the cleanest window to run the washing machine or charge an EV, from the UK Carbon Intensity forecast. The web build is the same code.',
     highlights: [
-      'Sliding-window maths as a tested pure function',
+      'Sliding-window maths as a tested pure function, with 57 rule scenarios in Gherkin',
       'Reanimated entrance that respects reduced motion',
       'SVG chart with a written legend, so colour is never the only signal',
     ],
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     description:
       'Finds the cheapest time to charge an electric car on the Agile Octopus tariff, from live half-hourly prices for any UK region, and compares the cost with starting now.',
     highlights: [
-      'Planner logic as plain, tested functions (125 tests)',
+      'Planner logic as plain, tested functions, with 43 rule scenarios in Gherkin',
       'API responses validated with Zod',
       'Accessible price chart, with the same prices as a table',
     ],
@@ -268,10 +268,10 @@ export const projects: Project[] = [
     description: 'A responsive data table with filtering, search, pagination and shareable URLs.',
     highlights: [
       'State lives in the URL, so every view is linkable',
+      '59 rule scenarios in Gherkin; writing them found a URL bug',
       'Lighthouse 100',
-      'Responsive down to phone width',
     ],
-    stack: ['React', 'TypeScript', 'Jest'],
+    stack: ['React', 'TypeScript', 'Jotai', 'Tailwind CSS', 'Vitest'],
     demoUrl: 'https://rveruna.github.io/country-data-table/',
     repoUrl: 'https://github.com/rveruna/country-data-table',
     color: '#ffc83d',
@@ -304,7 +304,17 @@ export const skillGroups: { title: string; items: string[] }[] = [
   },
   {
     title: 'Quality',
-    items: ['Jest', 'Testing Library', 'MSW', 'Playwright', 'Storybook', 'ESLint', 'Accessibility'],
+    items: [
+      'Jest',
+      'Vitest',
+      'Testing Library',
+      'MSW',
+      'Playwright',
+      'Gherkin (Cucumber, Reqnroll)',
+      'Storybook',
+      'ESLint',
+      'Accessibility',
+    ],
   },
   { title: 'Also', items: ['C#/.NET Core', 'Open Banking', 'i18next', 'Reactotron', 'CI/CD', 'Mentoring'] },
 ];
