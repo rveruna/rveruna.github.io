@@ -1,4 +1,4 @@
-/** Single source of truth. The route, the project cards, the command palette and the print CV all read this. */
+/** Single source of truth. The route, the project cards and the command palette all read this. */
 
 export interface Job {
   id: string;
