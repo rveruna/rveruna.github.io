@@ -150,6 +150,22 @@ export const jobs: Job[] = [
 
 export const projects: Project[] = [
   {
+    id: 'payoff-planner',
+    name: 'Payoff Planner',
+    tagline: 'Which debt first?',
+    description:
+      'Compares avalanche, snowball and minimum payments for several debts, shows the plans racing, and for any month shows exactly how every number was worked out. The debts are invented.',
+    highlights: [
+      'Money held as whole pence, with the rounding rule written down',
+      'Property-based tests found that snowball can take longer when a single penny more is paid',
+      'The working is read from the plan itself, so it cannot disagree with the numbers',
+    ],
+    stack: ['React', 'TypeScript', 'fast-check', 'Vitest'],
+    demoUrl: 'https://rveruna.github.io/payoff-planner/',
+    repoUrl: 'https://github.com/rveruna/payoff-planner',
+    color: '#ffc83d',
+  },
+  {
     id: 'greenest-time',
     name: 'Greenest Time',
     tagline: 'When is the grid cleanest?',
