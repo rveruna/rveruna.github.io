@@ -37,7 +37,7 @@ export const profile = {
   availability: 'Available now · Hybrid, remote or on-site',
   summary:
     'I build React Native and React apps that are well tested and accessible. Most recently the mobile app for an AI-driven financial adviser, where conversational AI had to sit next to strictly deterministic, auditable advice logic.',
-  education: 'Web Design and Development, Edinburgh Napier University',
+  education: 'BSc Web Design and Development, Edinburgh Napier University',
 };
 
 export const links: Link[] = [

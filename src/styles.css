@@ -771,64 +771,6 @@ dialog::backdrop {
   }
 }
 
-/* Print: a plain CV from the same data */
-.print-cv {
-  display: none;
-}
-
-@media print {
-  .screen-only {
-    display: none !important;
-  }
-
-  .print-cv {
-    display: block;
-    max-width: 720px;
-    margin: 0 auto;
-    color: #000;
-    font:
-      10.5pt/1.4 Georgia,
-      serif;
-  }
-
-  body {
-    background: #fff;
-  }
-
-  .print-cv h1 {
-    font-size: 22pt;
-  }
-
-  .print-cv h2 {
-    margin: 14pt 0 4pt;
-    padding-bottom: 2pt;
-    border-bottom: 1px solid #000;
-    font-size: 12pt;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .print-cv h3 {
-    margin-top: 8pt;
-    font-size: 11pt;
-  }
-
-  .print-cv section {
-    break-inside: avoid;
-  }
-
-  .print-cv ul {
-    margin: 2pt 0;
-    padding-left: 16pt;
-  }
-
-  .print-cv__meta {
-    margin: 0;
-    color: #444;
-    font-style: italic;
-  }
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
