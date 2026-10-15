@@ -4,7 +4,7 @@
 
 **[Live site](https://rveruna.github.io/)**
 
-My CV as an interactive page: a career told as a bus route, live project demos you can open as case studies, a keyboard command palette, and a print stylesheet that turns the same data into a plain two-page CV.
+My CV as an interactive page: a career told as a bus route, live project demos you can open as case studies, a keyboard command palette, and a downloadable one-page CV.
 
 React, TypeScript and Vite. No animation library, no UI kit.
 
@@ -13,12 +13,12 @@ React, TypeScript and Vite. No animation library, no UI kit.
 - **Career as a bus route.** An SVG road winds past each job. The bus is placed on it from the scroll position (`getPointAtLength`, with a binary search to find the point at the current height). The road and cards are laid out from measured card heights, so nothing overlaps at any width.
 - **Physics hero.** The letters of my name are spring-driven and flee the cursor. The spring is a pure function (`src/lib/spring.ts`).
 - **Case studies with live demos.** Project cards morph into a dialog using the View Transitions API, with the deployed app embedded. Browsers without it just open the dialog.
-- **⌘K / Ctrl+K command palette.** An ARIA combobox: jump to a section, open a project or link, or print the CV.
-- **Print CV.** `@media print` hides the app and shows a linear CV built from the same data (`src/data/cv.ts`), so the site and the PDF cannot disagree.
+- **⌘K / Ctrl+K command palette.** An ARIA combobox: jump to a section, open a project or link, or download the CV.
+- **CV download.** A one-page PDF, linked from the hero, the contact section and the palette. It is a static file in `public/`, linked through the site's base path so it works under any deploy path.
 
 ## Decisions worth a look
 
-- **One data file.** Jobs, projects, links and skills live in `src/data/cv.ts`. The route, cards, palette and print CV all read it.
+- **One data file.** Jobs, projects, links and skills live in `src/data/cv.ts`. The route, cards and palette all read it.
 - **Pure logic, tested.** Route layout, nearest-stop and path-length search, command scoring and spring physics have unit tests. One test pins a bug I hit: fuzzy search matched "pdf" against hidden keywords.
 - **Calm layout when it can't be wow.** Phones, tablets and touch screens get stacked cards and a static name. Anyone with `prefers-reduced-motion` gets no hero physics, no view transitions and no continuous bus movement: the bus just sits at the stop you're reading.
 - **Accessible by construction.** Skip link, native `<dialog>` focus handling, focus returned to the card on close, a real heading structure, visible focus rings, 44px targets, and screen-reader text for the physics letters.
