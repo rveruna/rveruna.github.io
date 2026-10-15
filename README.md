@@ -4,6 +4,8 @@
 
 **[Live site](https://rveruna.github.io/)**
 
+[![Scrolling down the career bus route as the bus drives along it, then pressing Ctrl+K, typing "green" in the command palette and opening the Greenest Time case study with its live demo embedded](docs/demo.gif)](https://rveruna.github.io/)
+
 My CV as an interactive page: a career told as a bus route, live project demos you can open as case studies, a keyboard command palette, and a downloadable one-page CV.
 
 React, TypeScript and Vite. No animation library, no UI kit.
