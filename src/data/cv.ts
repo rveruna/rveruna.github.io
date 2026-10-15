@@ -20,7 +20,8 @@ export interface Project {
   description: string;
   highlights: string[];
   stack: string[];
-  demoUrl: string;
+  /** Absent for a project with nothing to run in a browser; its case study shows the text only. */
+  demoUrl?: string;
   repoUrl: string;
   color: string;
 }
@@ -165,6 +166,70 @@ export const projects: Project[] = [
     color: '#2bd3a0',
   },
   {
+    id: 'accessible-rn-components',
+    name: 'Accessible RN Components',
+    tagline: 'Accessibility, checked four ways',
+    description:
+      'A small React Native component library (Button, TextField, Toggle, Banner). Accessibility is checked by unit tests, contrast tests, an axe audit of every Storybook story, and a mutation check that the tests notice broken rules.',
+    highlights: [
+      'Every text and background colour pair in the tokens tested against WCAG AA',
+      'The browser audit caught three bugs the unit tests missed',
+      'Mutation check: 11 of 11 deliberately broken rules caught',
+    ],
+    stack: ['React Native', 'TypeScript', 'Storybook', 'axe-core', 'Testing Library'],
+    demoUrl: 'https://rveruna.github.io/accessible-rn-components/',
+    repoUrl: 'https://github.com/rveruna/accessible-rn-components',
+    color: '#6b4cff',
+  },
+  {
+    id: 'coauthor-explorer',
+    name: 'Co-author Explorer',
+    tagline: 'Who writes with whom',
+    description:
+      'Search for any researcher and see who they write papers with as a live, draggable network, from OpenAlex open data. Expand collaborators, narrow the years, and colour people by groups found automatically.',
+    highlights: [
+      'Force layout on a canvas, with a keyboard and table alternative',
+      'Every choice kept in the URL, so a link reproduces the view',
+      'Falls back to saved real data when the API is unavailable, and says so',
+    ],
+    stack: ['React', 'TypeScript', 'd3-force', 'TanStack Query'],
+    demoUrl: 'https://rveruna.github.io/coauthor-explorer/',
+    repoUrl: 'https://github.com/rveruna/coauthor-explorer',
+    color: '#ffc83d',
+  },
+  {
+    id: 'agile-charge-planner',
+    name: 'Agile Charge Planner',
+    tagline: 'The cheapest half-hours to charge',
+    description:
+      'Finds the cheapest time to charge an electric car on the Agile Octopus tariff, from live half-hourly prices for any UK region, and compares the cost with starting now.',
+    highlights: [
+      'Planner logic as plain, tested functions (125 tests)',
+      'API responses validated with Zod',
+      'Accessible price chart, with the same prices as a table',
+    ],
+    stack: ['React', 'TypeScript', 'TanStack Query', 'Zod'],
+    demoUrl: 'https://rveruna.github.io/agile-charge-planner/',
+    repoUrl: 'https://github.com/rveruna/agile-charge-planner',
+    color: '#ff5a4e',
+  },
+  {
+    id: 'bus-trip-info-page',
+    name: 'Bus Trip Info',
+    tagline: 'Follow real buses, live',
+    description:
+      "Every bus running on a route you choose, live from Ember's public API: positions on a map, stop times and delays, and a phone view. A bus whose position has stopped updating is listed, not drawn.",
+    highlights: [
+      'Live map with Leaflet; buses glide between 15-second refreshes',
+      'Route kept in the URL, so a link opens the same journey',
+      'Lighthouse accessibility, best practices and SEO 100',
+    ],
+    stack: ['React', 'TypeScript', 'Leaflet', 'Jest'],
+    demoUrl: 'https://rveruna.github.io/bus-trip-info-page/',
+    repoUrl: 'https://github.com/rveruna/bus-trip-info-page',
+    color: '#2bd3a0',
+  },
+  {
     id: 'motion-showcase',
     name: 'Motion Showcase',
     tagline: 'Four animations, no library',
@@ -181,22 +246,6 @@ export const projects: Project[] = [
     color: '#6b4cff',
   },
   {
-    id: 'bus-trip-info-page',
-    name: 'Bus Trip Info',
-    tagline: 'Follow a real bus, live',
-    description:
-      "A mobile-friendly page showing a bus's live position, stop times and delays, with the next stop highlighted. Real data from Ember's public API.",
-    highlights: [
-      'Live map with Leaflet',
-      'Refreshes every 15 seconds',
-      'Lighthouse accessibility and SEO 100',
-    ],
-    stack: ['React', 'TypeScript', 'Leaflet', 'Jest'],
-    demoUrl: 'https://rveruna.github.io/bus-trip-info-page/',
-    repoUrl: 'https://github.com/rveruna/bus-trip-info-page',
-    color: '#ffc83d',
-  },
-  {
     id: 'country-data-table',
     name: 'Country Table',
     tagline: 'Filter, search, share the URL',
@@ -209,6 +258,21 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'Jest'],
     demoUrl: 'https://rveruna.github.io/country-data-table/',
     repoUrl: 'https://github.com/rveruna/country-data-table',
+    color: '#ffc83d',
+  },
+  {
+    id: 'claude-workflow-kit',
+    name: 'Claude Workflow Kit',
+    tagline: 'Is this ticket ready?',
+    description:
+      'Checks a ticket before work starts. A tested linter decides the rules that have a right answer; Claude Code commands handle the judgement calls, and never overrule the linter.',
+    highlights: [
+      'Exit codes and JSON output, so it drops into CI or a pre-commit hook',
+      'Model output never overrides a deterministic rule',
+      '41 tests; 12 of 12 deliberate mutations caught',
+    ],
+    stack: ['TypeScript', 'Node.js', 'Claude Code', 'CLI'],
+    repoUrl: 'https://github.com/rveruna/claude-workflow-kit',
     color: '#ff5a4e',
   },
 ];

@@ -6,7 +6,10 @@ interface Props {
   onRequestClose: () => void;
 }
 
-/** A modal case study with the live demo embedded. The native <dialog> traps focus and handles Escape. */
+/**
+ * A modal case study, with the live demo embedded when the project has one. The native <dialog> traps focus and
+ * handles Escape.
+ */
 export function ProjectDialog({ project, onRequestClose }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -21,7 +24,7 @@ export function ProjectDialog({ project, onRequestClose }: Props) {
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <dialog
       ref={ref}
-      className="case"
+      className={project.demoUrl ? 'case' : 'case case--text-only'}
       aria-labelledby="case-title"
       style={{ ['--accent' as string]: project.color }}
       // Escape and the backdrop ask the parent to close, so the parent can animate the dialog away
@@ -59,29 +62,39 @@ export function ProjectDialog({ project, onRequestClose }: Props) {
               ))}
             </ul>
             <p className="case__links">
-              <a className="button" href={project.demoUrl} target="_blank" rel="noreferrer">
-                Open live demo
-              </a>
-              <a href={project.repoUrl} target="_blank" rel="noreferrer">
-                Source on GitHub
-              </a>
+              {project.demoUrl ? (
+                <>
+                  <a className="button" href={project.demoUrl} target="_blank" rel="noreferrer">
+                    Open live demo
+                  </a>
+                  <a href={project.repoUrl} target="_blank" rel="noreferrer">
+                    Source on GitHub
+                  </a>
+                </>
+              ) : (
+                <a className="button" href={project.repoUrl} target="_blank" rel="noreferrer">
+                  Source on GitHub
+                </a>
+              )}
             </p>
           </div>
-          <div className="case__frame">
-            {!loaded && (
-              <p className="case__loading" role="status">
-                Loading live demo…
-              </p>
-            )}
-            <iframe
-              className="case__demo"
-              title={`${project.name} live demo`}
-              src={project.demoUrl}
-              sandbox="allow-scripts allow-same-origin allow-popups"
-              onLoad={() => setLoaded(true)}
-              style={{ visibility: loaded ? 'visible' : 'hidden' }}
-            />
-          </div>
+          {project.demoUrl && (
+            <div className="case__frame">
+              {!loaded && (
+                <p className="case__loading" role="status">
+                  Loading live demo…
+                </p>
+              )}
+              <iframe
+                className="case__demo"
+                title={`${project.name} live demo`}
+                src={project.demoUrl}
+                sandbox="allow-scripts allow-same-origin allow-popups"
+                onLoad={() => setLoaded(true)}
+                style={{ visibility: loaded ? 'visible' : 'hidden' }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </dialog>

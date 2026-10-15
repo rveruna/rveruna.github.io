@@ -193,9 +193,10 @@ export default function App() {
 
         <section id="projects" tabIndex={-1} aria-labelledby="projects-title" className="section">
           <p className="eyebrow">Things you can click</p>
-          <h2 id="projects-title">Live projects</h2>
+          <h2 id="projects-title">Projects</h2>
           <p className="section__lede">
-            Each one is deployed, tested and open source. Open a card for the case study.
+            All tested and open source, and all but one deployed so you can try it here. Open a card for the
+            case study.
           </p>
           <ul className="cards">
             {projects.map((p) => (
