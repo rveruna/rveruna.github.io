@@ -39,7 +39,8 @@ export function ProjectDialog({ project, onRequestClose }: Props) {
       }}
     >
       <div className="case__panel" data-vt="panel">
-        <header>
+        {/* A div, not a <header>: inside a dialog a <header> is read as a second page banner next to the site header */}
+        <div className="case__head">
           <div>
             <p className="eyebrow">{project.tagline}</p>
             <h2 id="case-title">{project.name}</h2>
@@ -47,7 +48,7 @@ export function ProjectDialog({ project, onRequestClose }: Props) {
           <button type="button" className="icon-button" onClick={onRequestClose}>
             Close
           </button>
-        </header>
+        </div>
         <div className="case__body">
           <div className="case__text">
             <p>{project.description}</p>

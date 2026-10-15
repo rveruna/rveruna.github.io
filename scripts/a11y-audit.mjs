@@ -1,4 +1,4 @@
-// Runs axe-core (WCAG 2.0 to 2.2, A and AA rules) in a real browser against the built site, in the states
+// Runs axe-core (WCAG 2.0 to 2.2, A and AA rules, and axe's best-practice rules) in a real browser against the built site, in the states
 // where accessibility problems tend to hide: light and dark, phone and desktop, reduced motion, an open
 // dialog and an open command palette. Fails on any violation.
 // Usage: npm run a11y-audit   (builds first)
@@ -26,7 +26,8 @@ const server = http.createServer((req, res) => {
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
 const base = `http://127.0.0.1:${server.address().port}/`;
 
-const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
+// 'best-practice' catches things the WCAG rules do not, such as a second banner landmark inside a dialog
+const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
 const desktop = { viewport: { width: 1440, height: 900 } };
 const phone = { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true };
 
@@ -125,8 +126,11 @@ for (const s of scenarios) {
         return !label && !byText;
       }).length,
   );
-  violations += results.violations.length + untitled + unnamedDialogs;
-  const failed = results.violations.length + untitled + unnamedDialogs > 0;
+  // A <header> inside an open dialog is read as a second page banner next to the site header. Some versions of axe
+  // overlook this because the page behind a modal is inert, so it is checked directly.
+  const bannersInDialogs = await page.locator('dialog[open] header').count();
+  violations += results.violations.length + untitled + unnamedDialogs + bannersInDialogs;
+  const failed = results.violations.length + untitled + unnamedDialogs + bannersInDialogs > 0;
   console.log(`${failed ? 'FAIL' : 'PASS'}  ${s.name}`);
   for (const v of results.violations) {
     console.log(
@@ -137,6 +141,8 @@ for (const s of scenarios) {
   if (untitled) console.log(`   - frame-title: ${untitled} embedded frame(s) have no title attribute`);
   if (unnamedDialogs)
     console.log(`   - dialog-name: ${unnamedDialogs} open <dialog>(s) have no accessible name`);
+  if (bannersInDialogs)
+    console.log(`   - banner-in-dialog: ${bannersInDialogs} <header> element(s) inside an open dialog`);
   await context.close();
 }
 
