@@ -586,6 +586,18 @@ dialog::backdrop {
   overflow: hidden;
 }
 
+/* A project with no live demo: no space kept for one, so the dialog fits its text. */
+.case--text-only {
+  width: min(760px, 94vw);
+  /* Not auto: a modal dialog is pinned to the top and bottom of the screen, so auto stretches it to fill. */
+  height: fit-content;
+  max-height: 90vh;
+}
+
+.case--text-only .case__body {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .case__panel {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -740,6 +752,10 @@ dialog::backdrop {
 
   .case {
     height: 92vh;
+  }
+
+  .case--text-only {
+    height: fit-content;
   }
 
   .case__body {
