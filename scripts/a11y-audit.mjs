@@ -67,6 +67,15 @@ const scenarios = [
     },
   },
   {
+    name: 'desktop, code-only case study open (no demo)',
+    ctx: desktop,
+    setup: async (page) => {
+      await page.locator('[data-project-id="claude-workflow-kit"]').click();
+      await page.waitForSelector('dialog.case[open]');
+      await page.waitForTimeout(700);
+    },
+  },
+  {
     name: 'desktop, command palette open',
     ctx: desktop,
     setup: async (page) => {

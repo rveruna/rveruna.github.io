@@ -14,7 +14,7 @@ React, TypeScript and Vite. No animation library, no UI kit.
 
 - **Career as a bus route.** An SVG road winds past each job. The bus is placed on it from the scroll position (`getPointAtLength`, with a binary search to find the point at the current height). The road and cards are laid out from measured card heights, so nothing overlaps at any width.
 - **Physics hero.** The letters of my name are spring-driven and flee the cursor. The spring is a pure function (`src/lib/spring.ts`).
-- **Case studies with live demos.** Project cards morph into a dialog using the View Transitions API, with the deployed app embedded. Browsers without it just open the dialog.
+- **Case studies with live demos.** All eight projects from my GitHub, as cards that morph into a dialog using the View Transitions API, with the deployed app embedded. A project with nothing to run in a browser (the Claude workflow kit) opens as text only. Browsers without View Transitions just open the dialog.
 - **⌘K / Ctrl+K command palette.** An ARIA combobox: jump to a section, open a project or link, or download the CV.
 - **CV download.** A one-page PDF, linked from the hero, the contact section and the palette. It is a static file in `public/`, linked through the site's base path so it works under any deploy path.
 
@@ -27,7 +27,7 @@ React, TypeScript and Vite. No animation library, no UI kit.
 
 ## Accessibility
 
-`npm run a11y-audit` builds the site and runs [axe-core](https://github.com/dequelabs/axe-core) (WCAG 2.0 to 2.2, A and AA rules) in Chromium against the real page, in 10 states: light and dark, phone and desktop, reduced motion, the route scrolled, the case-study dialog open (desktop and phone) and the command palette open (light and dark). It runs in CI and fails the build on any violation. Currently 0.
+`npm run a11y-audit` builds the site and runs [axe-core](https://github.com/dequelabs/axe-core) (WCAG 2.0 to 2.2, A and AA rules) in Chromium against the real page, in 11 states: light and dark, phone and desktop, reduced motion, the route scrolled, the case-study dialog open (desktop and phone, plus a project with no live demo) and the command palette open (light and dark). It runs in CI and fails the build on any violation. Currently 0.
 
 **The audit is itself tested.** I broke the site on purpose, one rule at a time, to check the audit notices:
 
