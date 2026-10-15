@@ -37,7 +37,7 @@ export const profile = {
   availability: 'Available now · Hybrid, remote or on-site',
   summary:
     'I build React Native and React apps that are well tested and accessible. Most recently the mobile app for an AI-driven financial adviser, where conversational AI had to sit next to strictly deterministic, auditable advice logic.',
-  education: 'BSc Web Design and Development, Edinburgh Napier University',
+  education: 'Web Design and Development, Edinburgh Napier University',
 };
 
 export const links: Link[] = [
@@ -74,7 +74,7 @@ export const jobs: Job[] = [
     blurb: 'One React Native codebase, shipped to mobile and web.',
     highlights: [
       'Used React Native Web to ship a single codebase to mobile and web',
-      'Cut over-fetching by moving data access to GraphQL with a typed schema',
+      'Optimised data retrieval with GraphQL and a strongly typed API schema',
       'Reworked sign-up and registration in React; built accessible HTML5 web apps',
     ],
     stack: ['React Native Web', 'React', 'GraphQL', 'Accessibility'],
