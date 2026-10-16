@@ -170,11 +170,11 @@ export const projects: Project[] = [
     name: 'Watchfloor',
     tagline: 'What happens when the connection drops?',
     description:
-      'A live monitor for a few invented sites: a numbered stream of device events and alarms to acknowledge. It reconnects with growing, randomised waits, fetches exactly the events it missed, and says in words what it is doing. Everything is invented and nothing is connected to a real product.',
+      'A live monitor for a few invented sites: a numbered stream of device events and alarms to acknowledge. It reconnects with growing, randomised waits, fetches exactly the events it missed, and says in words what it is doing. Everything is invented and nothing is connected to a real product. It runs in the page or against a real server.',
     highlights: [
       'The connection is a pure state machine, so every failure path is tested without waiting',
       'Events can arrive late, twice or not at all, and an unacknowledged alarm is never dropped',
-      'Wrong imports fail the build, and 257 tests plus 29 browser checks with axe run on every push',
+      'Wrong imports fail the build, and 311 tests plus 29 browser checks with axe run on every push; the same server code also runs on Vercel, where copies share no memory',
     ],
     stack: ['Vue 3', 'Pinia', 'TypeScript', 'WebSockets', 'Playwright'],
     demoUrl: 'https://rveruna.github.io/watchfloor/',
