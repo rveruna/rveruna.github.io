@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { filterCommands, type Command } from '@/lib/palette';
 
 interface Props {
@@ -28,8 +28,6 @@ export function CommandPalette({ open, onClose, commands }: Props) {
     }
     if (!open && el.open) el.close();
   }, [open]);
-
-  useEffect(() => setCursor(0), [query]);
 
   const run = (c: Command | undefined) => {
     if (!c) return;
@@ -73,7 +71,10 @@ export function CommandPalette({ open, onClose, commands }: Props) {
         aria-label="Type a command"
         placeholder="Jump to… (try “projects”, “pdf”, “github”)"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setCursor(0);
+        }}
         onKeyDown={onKeyDown}
       />
       <ul id={listId} role="listbox" className="palette__list">
